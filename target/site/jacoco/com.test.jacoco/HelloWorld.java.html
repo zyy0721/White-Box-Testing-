@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HelloWorld.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCo</a> &gt; <a href="index.source.html" class="el_package">com.test.jacoco</a> &gt; <span class="el_source">HelloWorld.java</span></div><h1>HelloWorld.java</h1><pre class="source lang-java linenums">package com.test.jacoco;
+
+import javax.imageio.event.IIOReadWarningListener;
+
+
+public class HelloWorld {
+<span class="fc" id="L7">    public HelloWorld() {</span>
+
+<span class="fc" id="L9">    }</span>
+
+    public String Method1() {
+<span class="fc" id="L12">        return &quot;Hello World&quot;;</span>
+    }
+
+    public int Method2(int a, int b) {
+<span class="fc" id="L16">        return a + b;</span>
+    }
+    
+    public int Method3(int a, int b, int c){
+<span class="fc bfc" id="L20" title="All 6 branches covered.">    	if((a&gt;5&amp;&amp;b&lt;0)||c&gt;0) {</span>
+<span class="fc" id="L21">    		System.out.println(&quot;Condition 1&quot;);</span>
+    	}
+<span class="fc bfc" id="L23" title="All 4 branches covered.">    	else if(a&lt;5 &amp;&amp; c&lt;-2 ) {</span>
+<span class="fc" id="L24">    		System.out.println(&quot;Condition 2&quot;);</span>
+    	}
+    	else {
+<span class="fc" id="L27">    		System.out.println(&quot;Condition 3&quot;);</span>
+    	}
+<span class="fc" id="L29">    	return 0;</span>
+    }
+    public int Method4(int a, int b, int c, int d, float e) {
+<span class="fc bfc" id="L32" title="All 2 branches covered.">    	if(a == 0) {</span>
+<span class="fc" id="L33">    		return 0;</span>
+    	}
+
+<span class="fc" id="L36">    	int x = 0;</span>
+<span class="fc bfc" id="L37" title="All 6 branches covered.">    	if((a == b) || ((c == d) &amp;&amp; (bug(a)))) {</span>
+<span class="fc" id="L38">    		 x = 1;</span>
+    	}
+    	try {
+<span class="fc" id="L41">			e = 1/x;</span>
+<span class="fc" id="L42">		}catch (Exception ee){</span>
+<span class="fc" id="L43">    		ee.printStackTrace();</span>
+<span class="fc" id="L44">		}</span>
+
+<span class="fc" id="L46">    	return 0;</span>
+    }
+    public boolean bug(int a) {
+<span class="fc bfc" id="L49" title="All 2 branches covered.">    	if(a == 5) return true;</span>
+<span class="fc" id="L50">    	return false;</span>
+    }
+    
+    
+    public boolean isTriangle(int a, int b, int c) {
+    	/**
+    	 * TODO: You need to complete this method to determine whether  a
+    	 * triangle is formed or not when given the input edge a, b and c.
+    	 */
+<span class="fc bfc" id="L59" title="All 6 branches covered.">    	if (a+b&gt;c &amp;&amp; a+c&gt;b &amp;&amp; b+c&gt;a)</span>
+<span class="fc" id="L60">    		return true;</span>
+    	else
+<span class="fc" id="L62">    		return false;</span>
+    }
+    public boolean isBirthday(int year, int month, int day) {
+    	/**
+    	 * TODO: You need to complete this method to determine whether a 
+    	 * legitimate date of birth between 1990/01/01 and 2019/10/01 is 
+    	 * formed or not when given the input year, month and day.
+    	 */
+    	//闰年月份天数
+<span class="fc" id="L71">		int[] mon_of_leapyear = {0,31,29,31,30,31,30,31,31,30,31,30,31};</span>
+		//正常年月份天数
+<span class="fc" id="L73">		int[] mon_of_normalyear = {0,31,28,31,30,31,30,31,31,30,31,30,31};</span>
+		//判断输入年份是否合法
+<span class="fc bfc" id="L75" title="All 4 branches covered.">		if (year&lt;=2019 &amp;&amp; year &gt;= 1990){</span>
+    		//判断是否为闰年
+<span class="fc bfc" id="L77" title="All 6 branches covered.">			if (year%4 == 0 &amp;&amp; year%100!=0 || year%400 ==0){//是闰年</span>
+				//判断输入月份是否合法
+<span class="fc bfc" id="L79" title="All 4 branches covered.">				if (month&gt;=1 &amp;&amp; month &lt;=12){</span>
+					//判断天数是否合法
+<span class="fc bfc" id="L81" title="All 4 branches covered.">					if (day&gt;=1 &amp;&amp; day&lt;=mon_of_leapyear[month]){</span>
+<span class="fc" id="L82">						return true;</span>
+					}
+					else
+<span class="fc" id="L85">						return false;</span>
+				}
+				else
+<span class="fc" id="L88">					return false;</span>
+			}
+			else{
+				//不是闰年
+				//判断输入月份是否合法
+<span class="fc bfc" id="L93" title="All 2 branches covered.">				if (year==2019){</span>
+<span class="fc bfc" id="L94" title="All 4 branches covered.">					if (month&gt;=1 &amp;&amp; month&lt;=10){</span>
+						//判断天数是否合法
+<span class="fc bfc" id="L96" title="All 4 branches covered.">						if (day&gt;=1 &amp;&amp; day&lt;=mon_of_normalyear[month]){</span>
+<span class="fc" id="L97">							return true;</span>
+						}
+						else
+<span class="fc" id="L100">							return false;</span>
+					}
+					else
+<span class="fc" id="L103">						return false;</span>
+				}
+				else
+				{
+<span class="fc bfc" id="L107" title="All 4 branches covered.">					if (month&gt;=1 &amp;&amp; month&lt;=12){</span>
+						//判断天数是否合法
+<span class="fc bfc" id="L109" title="All 4 branches covered.">						if (day&gt;=1 &amp;&amp; day&lt;=mon_of_normalyear[month]){</span>
+<span class="fc" id="L110">							return true;</span>
+						}
+						else
+<span class="fc" id="L113">							return false;</span>
+					}
+					else
+<span class="fc" id="L116">						return false;</span>
+				}
+			}
+		}
+    	else
+<span class="fc" id="L121">    		return false;</span>
+    }
+    public Double miniCalculator(double a, double b, char op) {
+    	/**
+    	 * TODO: You need to complete this method to form a small calculator which 
+    	 * can calculate the formula: &quot;a op b&quot;, the op here can be four basic  
+    	 * operation: &quot;+&quot;,&quot;-&quot;,&quot;*&quot;,&quot;/&quot;. 
+    	 */
+<span class="fc" id="L129">    	double result = 0.0;</span>
+<span class="fc bfc" id="L130" title="All 5 branches covered.">    	switch (op){</span>
+			case '+':
+<span class="fc" id="L132">				result = a + b;</span>
+<span class="fc" id="L133">				break;</span>
+			case '-':
+<span class="fc" id="L135">				result = a - b;</span>
+<span class="fc" id="L136">				break;</span>
+			case '*':
+<span class="fc" id="L138">				result = a * b;</span>
+<span class="fc" id="L139">				break;</span>
+			case '/':
+<span class="fc" id="L141">				result = a / b;</span>
+<span class="fc" id="L142">				break;</span>
+				default:
+<span class="fc" id="L144">					System.out.println(&quot;Unknown operation...&quot;);</span>
+					break;
+
+		}
+<span class="fc" id="L148">    	return result;</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
