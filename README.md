@@ -2,7 +2,7 @@
 
 ## HTML报告结果截图如下
 
-![result](D:\Studying\NJU\2019-2020 Fall Semester One\SoftwareAnalysis&Testing\Homework\White-Box-Testing-\IMG\result.png)
+![result](./IMG/result.png)
 
 本次实验中主要实现了```isTriangle```、```isBirthday```、```miniCalculator```函数功能，其中为了实现```Method4```函数中分支测试的全覆盖，适当修改了代码加入了```try catch```语句。 具体添加和修改的代码如下：
 
